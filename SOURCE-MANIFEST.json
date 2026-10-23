@@ -1,0 +1,566 @@
+{
+  "schemaVersion": 1,
+  "app": "BarPilot",
+  "sourceProject": "BarPilot",
+  "license": "GPL-3.0-only",
+  "sharedSourceHashes": {
+    "AppLocalizationKit": "0851a965a9dc105658cf8d362b0a14ad13b5ee0b02b6209ce89c7be404bd0174"
+  },
+  "files": [
+    {
+      "path": ".gitignore",
+      "bytes": 333,
+      "sha256": "da5602dbd93009bbe59dc253fcc836e23994fc598bf297775d8b75db1f594b61"
+    },
+    {
+      "path": "BarPilot/.gitignore",
+      "bytes": 46,
+      "sha256": "500cc81b5be41c38eda1e1abc6d058d6501a487111c26d7eeb6e3cbb3a91a657"
+    },
+    {
+      "path": "BarPilot/.swift-format",
+      "bytes": 74,
+      "sha256": "bd76f80cb47e96d65b46896d54816d26996fdda48304dffcc53dcb2d3c82671b"
+    },
+    {
+      "path": "BarPilot/LICENSE",
+      "bytes": 35149,
+      "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986"
+    },
+    {
+      "path": "BarPilot/Package.swift",
+      "bytes": 1046,
+      "sha256": "8a88d02916bbe54823333556212351e2506696416357be4cfc74aa58197885c7"
+    },
+    {
+      "path": "BarPilot/README.md",
+      "bytes": 176,
+      "sha256": "f14664254808435f0fade2e69fb8504fb57a0b6776f0751eb9dd327aaef23a92"
+    },
+    {
+      "path": "BarPilot/Scripts/build-pro-media.sh",
+      "bytes": 1445,
+      "sha256": "2869e88b0c718472fabeb44a8b910236d61b225751fc230daf6d5d8d3f4908bb"
+    },
+    {
+      "path": "BarPilot/Scripts/build.sh",
+      "bytes": 3023,
+      "sha256": "a783a3fbae60d5acf2ecfcbd2c265d23d36b62d2379a349d8acbc14c8d69c0e7"
+    },
+    {
+      "path": "BarPilot/Scripts/install.sh",
+      "bytes": 2844,
+      "sha256": "172eb4ca7c5fef8ff6f869c0ec524c1a64f8fb5a5f5f93f445ca82c7eb7a2816"
+    },
+    {
+      "path": "BarPilot/Scripts/make-icon.swift",
+      "bytes": 2573,
+      "sha256": "de286eeffcfaf4ebab75cb4ef62061d1313ef93e4a031384d4885d68231c90d3"
+    },
+    {
+      "path": "BarPilot/Scripts/ui-smoke.swift",
+      "bytes": 29222,
+      "sha256": "ef2caaa23789f4469ec39c0d4cd424f60fea6f8f78ffdb78d4de34c9a68d64e6"
+    },
+    {
+      "path": "BarPilot/Sources/BarPilot/Automation/AutomationService.swift",
+      "bytes": 8044,
+      "sha256": "6e6787920484e3aa32fc717775368b677cf0281df0762f1f62699663a69e7d5c"
+    },
+    {
+      "path": "BarPilot/Sources/BarPilot/Automation/ProAutomationEditor.swift",
+      "bytes": 15981,
+      "sha256": "f0ab2dfa44282155534dc681a08bfd3e32751cede891eedc5acd0bb0d4beb883"
+    },
+    {
+      "path": "BarPilot/Sources/BarPilot/BarPilotApp.swift",
+      "bytes": 17478,
+      "sha256": "29030d97ede6d676f285607d7c633cbe840adaeec30b7a336fa1b5a6edd2d5ba"
+    },
+    {
+      "path": "BarPilot/Sources/BarPilot/BarPilotModel.swift",
+      "bytes": 62422,
+      "sha256": "10f2aa0af3792111292b012b23231ce3b170597fbdbda9dfdb3c4734eb2272e0"
+    },
+    {
+      "path": "BarPilot/Sources/BarPilot/BarPilotView.swift",
+      "bytes": 35676,
+      "sha256": "3139ef0a10c8c9f3e754311702cc3dcfd699f2ad89b348e0d3ed4a88932faf47"
+    },
+    {
+      "path": "BarPilot/Sources/BarPilot/CommandPalette.swift",
+      "bytes": 18688,
+      "sha256": "adaa7636523948858d9c7e2ecbfecdb8ce00f80a396a5b60ae78deada4217653"
+    },
+    {
+      "path": "BarPilot/Sources/BarPilot/DisplayLayoutsView.swift",
+      "bytes": 3123,
+      "sha256": "d0400dda56853ad11404cd2f425f39e974c00bf4d8bd49b7a2e0bbeaef249f5a"
+    },
+    {
+      "path": "BarPilot/Sources/BarPilot/MenuBarDisplays.swift",
+      "bytes": 1123,
+      "sha256": "3599567155318f62db6cfe6931422819fc740694c2366969c05679b3e59e5769"
+    },
+    {
+      "path": "BarPilot/Sources/BarPilot/MenuBarInventory.swift",
+      "bytes": 12481,
+      "sha256": "7523ce7a40cca7c7d0388d2bf8b903f82809af636cb555c369bfb6a55a1427d1"
+    },
+    {
+      "path": "BarPilot/Sources/BarPilot/MenuBarManager.swift",
+      "bytes": 29532,
+      "sha256": "53147c7f599eee03bbf453d427faf2d7d88ffb917c3f68327c93960a1f2df035"
+    },
+    {
+      "path": "BarPilot/Sources/BarPilot/MenuBarManagerRuntime.swift",
+      "bytes": 2228,
+      "sha256": "8089ee521aee1da68dafb6e5f5a94bf2645506cbcf4564b3c80b535b0980b38c"
+    },
+    {
+      "path": "BarPilot/Sources/BarPilot/MenuBarPositionService.swift",
+      "bytes": 13349,
+      "sha256": "65317c63b467f4cb609b135440cc8ed4c46dd86d049a47fb2ddbe9000079b393"
+    },
+    {
+      "path": "BarPilot/Sources/BarPilot/MenuBarRevealController.swift",
+      "bytes": 7826,
+      "sha256": "9b97574373e6f4e1db7ed1b20fcbd6f9756ca0cbc9bc192914ea1b049e95adc4"
+    },
+    {
+      "path": "BarPilot/Sources/BarPilot/MenuBarSessionController.swift",
+      "bytes": 5021,
+      "sha256": "40e9c6f206939b40362afacd3198180057b2383fed1b7cb336afe08fca27f786"
+    },
+    {
+      "path": "BarPilot/Sources/BarPilot/MenuBarSystemItems.swift",
+      "bytes": 1647,
+      "sha256": "87e8e0d2a1235711723fd1f225723161611a3fc0b7c99e72cedc58b37d78f327"
+    },
+    {
+      "path": "BarPilot/Sources/BarPilot/OverflowBar.swift",
+      "bytes": 19451,
+      "sha256": "48fcd766342b0d3bdbc17e44fc2dec164d618e599c009daa3bada2217aed482b"
+    },
+    {
+      "path": "BarPilot/Sources/BarPilot/Pro/AgentActivityService.swift",
+      "bytes": 2969,
+      "sha256": "e35693ac4115f3aa3553b9c95af795e86f056396c402044d756487e119354105"
+    },
+    {
+      "path": "BarPilot/Sources/BarPilot/Pro/BarPilotProServices.swift",
+      "bytes": 10251,
+      "sha256": "7db37fa920b7dc3625e6fc8bba0ec5b15d7c1de79092b55f65656418ef7981a2"
+    },
+    {
+      "path": "BarPilot/Sources/BarPilot/Pro/CalendarWidgetService.swift",
+      "bytes": 3231,
+      "sha256": "4b7f9f0b8a50be634251ef58759a1e649a353834b351daac53d6d44952942ac4"
+    },
+    {
+      "path": "BarPilot/Sources/BarPilot/Pro/ClipboardHistoryService.swift",
+      "bytes": 7316,
+      "sha256": "e03cdbde532b4e60d3ad1d96fd530e6d46562e3db21a28e9af564312a643f053"
+    },
+    {
+      "path": "BarPilot/Sources/BarPilot/Pro/FileShelfService.swift",
+      "bytes": 3209,
+      "sha256": "eb16c9d736b860088a68fc08d368301b2a393156435cc8b27d00d43d04550c14"
+    },
+    {
+      "path": "BarPilot/Sources/BarPilot/Pro/MediaWidgetService.swift",
+      "bytes": 7886,
+      "sha256": "08c157c6fe78968b4d10807b124d22d95aaf6c26ebc908dc8aaff2397d913972"
+    },
+    {
+      "path": "BarPilot/Sources/BarPilot/Pro/ProCapsuleController.swift",
+      "bytes": 11714,
+      "sha256": "adced046bf9ef523634206f754a2a2f0e117370181be533d735007efe0df0d85"
+    },
+    {
+      "path": "BarPilot/Sources/BarPilot/Pro/ProDashboardView.swift",
+      "bytes": 22513,
+      "sha256": "59f90feaf2abf19722fc3e9152f4caccc0c6fe8186a7a1763e5b25ca6a254dca"
+    },
+    {
+      "path": "BarPilot/Sources/BarPilot/Pro/ProMediaTransport.swift",
+      "bytes": 4134,
+      "sha256": "ae3ba51ab045a9cb112e85d85464ffde0e231deca33d796a793a90284cea766c"
+    },
+    {
+      "path": "BarPilot/Sources/BarPilot/Pro/ProShelfPanel.swift",
+      "bytes": 5264,
+      "sha256": "7973cf55958cc651a7d7534a8bbc29cea4058e7d717d97dc9775111e623bb9e8"
+    },
+    {
+      "path": "BarPilot/Sources/BarPilot/Pro/ProStorage.swift",
+      "bytes": 1171,
+      "sha256": "fc0694d453fde19764238a74eb7c32a75712f97ba3b9cfd6ffcecfb047c97b9e"
+    },
+    {
+      "path": "BarPilot/Sources/BarPilot/Pro/SystemWidgetService.swift",
+      "bytes": 2401,
+      "sha256": "1009686faa27b5d18085095ae057a30184b2526b9b4633c3b0f5f8a336eafb57"
+    },
+    {
+      "path": "BarPilot/Sources/BarPilot/Pro/WeatherWidgetService.swift",
+      "bytes": 2989,
+      "sha256": "62f16e8bea8fc5f83c6c87b9410a8a4ba3a405ced02253f12be794f12547bd04"
+    },
+    {
+      "path": "BarPilot/Sources/BarPilotCore/AssessmentPolicy.swift",
+      "bytes": 2283,
+      "sha256": "8efabafc0cac47c0f87f588ad7413f6a027aebea08fd4a74a89557042fb6ad50"
+    },
+    {
+      "path": "BarPilot/Sources/BarPilotCore/AutomationRules.swift",
+      "bytes": 6718,
+      "sha256": "498b2022e924e1e162cd2388a12c50eb68cc1a4604584fb2cf19080490fc5479"
+    },
+    {
+      "path": "BarPilot/Sources/BarPilotCore/CapsuleGeometry.swift",
+      "bytes": 1244,
+      "sha256": "394d983110bb749505172ddaa41b3fda2454a4f75e6d4954dce85571ab90bab8"
+    },
+    {
+      "path": "BarPilot/Sources/BarPilotCore/ControlOrder.swift",
+      "bytes": 1297,
+      "sha256": "f6fb66ad69c6161a6ef8e7bd5db1b4851688cfa759f825d762cf3a6b35042480"
+    },
+    {
+      "path": "BarPilot/Sources/BarPilotCore/DisplayLayouts.swift",
+      "bytes": 2700,
+      "sha256": "e880821be698f3d4b6e4ec0749576e0f4fd9b31d309b2bb512c3adff07fc1a81"
+    },
+    {
+      "path": "BarPilot/Sources/BarPilotCore/HotKeyCommand.swift",
+      "bytes": 344,
+      "sha256": "608b2f3746a2a590428f391dff49c5f41c9935573e86495e360d4566bc1b656a"
+    },
+    {
+      "path": "BarPilot/Sources/BarPilotCore/LaunchLocation.swift",
+      "bytes": 736,
+      "sha256": "dc7bdd292e31af72e924c4f7501cc8ce3a9081a9c2093fa4c3234a1d2da9e6d3"
+    },
+    {
+      "path": "BarPilot/Sources/BarPilotCore/Localization.swift",
+      "bytes": 595,
+      "sha256": "9a538471b6d77b4aa50464872a2570770ad224e54d4c6633e82c3be2fd31ded3"
+    },
+    {
+      "path": "BarPilot/Sources/BarPilotCore/MenuBarCommands.swift",
+      "bytes": 2450,
+      "sha256": "7f440702dd928567205e4d8f5f1f17c908ad54f8ae9135905c4fcd5cb1a50f28"
+    },
+    {
+      "path": "BarPilot/Sources/BarPilotCore/MenuBarListFilter.swift",
+      "bytes": 1073,
+      "sha256": "f1a4eb03607d67c7e0f74f2d2f7e16a3782589607633c477dbd22c51e58207c7"
+    },
+    {
+      "path": "BarPilot/Sources/BarPilotCore/MenuBarModels.swift",
+      "bytes": 9271,
+      "sha256": "5b7e1c0083149bc3d4d7041940d0c4affbc05a257ecffc2743b3e7edb375a294"
+    },
+    {
+      "path": "BarPilot/Sources/BarPilotCore/MenuBarOverflow.swift",
+      "bytes": 3389,
+      "sha256": "6ad130fd34340b9920f4a00ec23179604801ed76164bee8ee2a4691abdc9b725"
+    },
+    {
+      "path": "BarPilot/Sources/BarPilotCore/MenuBarRevealPolicy.swift",
+      "bytes": 3042,
+      "sha256": "7b500c96931d0f72e00955acaf3fa37571327b502f42df4800f95d22edf2e6f3"
+    },
+    {
+      "path": "BarPilot/Sources/BarPilotCore/MenuBarSessionLifecycle.swift",
+      "bytes": 1506,
+      "sha256": "bd975f8d77c643c08c9816329bd0fdd70bb17584c267496d6556600c16a29203"
+    },
+    {
+      "path": "BarPilot/Sources/BarPilotCore/MoveJournal.swift",
+      "bytes": 3042,
+      "sha256": "a17cf6d1f43ae6f9bdb5b3ed16c23bff7104ea9b7fe81361bb923f2b99659794"
+    },
+    {
+      "path": "BarPilot/Sources/BarPilotCore/PaletteCommands.swift",
+      "bytes": 11994,
+      "sha256": "78b4fe5726d7ac32939e98d088ac19bfbd7f28719f8ccbe37e23d15e31a3daf6"
+    },
+    {
+      "path": "BarPilot/Sources/BarPilotCore/PreferredPositions.swift",
+      "bytes": 13235,
+      "sha256": "86070619a14adae918ba29dd87671aee42eb8c5969cb73ae9b0dee90da967aac"
+    },
+    {
+      "path": "BarPilot/Sources/BarPilotCore/PresentationStore.swift",
+      "bytes": 1942,
+      "sha256": "0bf98dfb61e0d419b3b158c2d5b0085253be73fa845af24ded0014ea7f9a08f0"
+    },
+    {
+      "path": "BarPilot/Sources/BarPilotCore/ProMediaSnapshot.swift",
+      "bytes": 2599,
+      "sha256": "040a14fbdf4303a691131e337a177f26d2942a6ef86d662151ed7a82c364ef3e"
+    },
+    {
+      "path": "BarPilot/Sources/BarPilotCore/ProModels.swift",
+      "bytes": 7382,
+      "sha256": "043882ec5a3e7aa9e79a5dc94bfce00224ba244c8f9d11830fa01e1efdaf6314"
+    },
+    {
+      "path": "BarPilot/Sources/BarPilotCore/Resources/Localization/en.lproj/Localizable.strings",
+      "bytes": 37032,
+      "sha256": "c2f45fc7a410152c5823b9f7adc5c666a89e55a7dcb3401265b193afb68e6c1d"
+    },
+    {
+      "path": "BarPilot/Sources/BarPilotCore/Resources/Localization/zh-Hans.lproj/Localizable.strings",
+      "bytes": 32128,
+      "sha256": "15e975a1dff1e2b0622f9c899d6709b468080373b9a2dc3bda5fa5a014338192"
+    },
+    {
+      "path": "BarPilot/Sources/BarPilotCore/Resources/Localization/zh-Hant.lproj/Localizable.strings",
+      "bytes": 32095,
+      "sha256": "b86e9aef6c4e86f016965bf50501f723c05c1ac0af9d0a977521190ffaf55c05"
+    },
+    {
+      "path": "BarPilot/Sources/BarPilotCore/SettingsStore.swift",
+      "bytes": 3168,
+      "sha256": "a630029a9c4faa1cc0fd55e95cae1f3d488fdfb439bfacd3a2669f4f60378d40"
+    },
+    {
+      "path": "BarPilot/Sources/BarPilotCore/StatusControl.swift",
+      "bytes": 532,
+      "sha256": "354b80153b58f724af686432531ee2147c6b9bb16eb378e9bf04879883204859"
+    },
+    {
+      "path": "BarPilot/Sources/BarPilotNative/AssessmentAssertion.m",
+      "bytes": 4996,
+      "sha256": "146b31a5f788f3e3e6cc88ce41875229210c57b91eeef790b049dab946c0d780"
+    },
+    {
+      "path": "BarPilot/Sources/BarPilotNative/include/BarPilotNative.h",
+      "bytes": 492,
+      "sha256": "3116eedeaedf257e3be7e8138e271f50d335c4b11e8320f0491c4e0920a73c32"
+    },
+    {
+      "path": "BarPilot/Tests/BarPilotCoreTests/AssessmentPolicyTests.swift",
+      "bytes": 5100,
+      "sha256": "2f4479e68983aedfbaf6510fbfc79f42e57e6c1f10c4109fd797415ba12c9331"
+    },
+    {
+      "path": "BarPilot/Tests/BarPilotCoreTests/ControlOrderTests.swift",
+      "bytes": 1505,
+      "sha256": "4ba8e461aebdaad8526b0614d310b511a7cae5488c1bb38a205cee10cb2ae1ef"
+    },
+    {
+      "path": "BarPilot/Tests/BarPilotCoreTests/DisplayLayoutTests.swift",
+      "bytes": 2844,
+      "sha256": "a95c891d57f593983aaf9b16749da8b0a75c8852ee3380a4319581c54d8d6602"
+    },
+    {
+      "path": "BarPilot/Tests/BarPilotCoreTests/HotKeyCommandTests.swift",
+      "bytes": 555,
+      "sha256": "d02a2a637aff477bb9eb598f701595ab3d77abe3aff448616e8354ffa9b11d1a"
+    },
+    {
+      "path": "BarPilot/Tests/BarPilotCoreTests/LaunchLocationTests.swift",
+      "bytes": 2898,
+      "sha256": "3b6182f1d79394d08fb022985770c9eaf282ad5fa9c37ad85c8e53735516e41a"
+    },
+    {
+      "path": "BarPilot/Tests/BarPilotCoreTests/LocalizedIdentityTests.swift",
+      "bytes": 2005,
+      "sha256": "c02262a8b92957fa4843d716e12f0927e215902a6c7424660fad62d76c5259b1"
+    },
+    {
+      "path": "BarPilot/Tests/BarPilotCoreTests/MenuBarCoreTests.swift",
+      "bytes": 5073,
+      "sha256": "00e778c5da3f8cdb9175f3c0b81206b05b26b6e86d785ab4afacbb5b96537b4f"
+    },
+    {
+      "path": "BarPilot/Tests/BarPilotCoreTests/MenuBarListFilterTests.swift",
+      "bytes": 2626,
+      "sha256": "0c24dc405451da28dd8c5b7f4e96ebb85cbd1d431228609b7f343843d7b22da1"
+    },
+    {
+      "path": "BarPilot/Tests/BarPilotCoreTests/MenuBarOverflowTests.swift",
+      "bytes": 5190,
+      "sha256": "644a23245f94ae2e893618419f458a4898fad50e35151568378f07f9b9aac754"
+    },
+    {
+      "path": "BarPilot/Tests/BarPilotCoreTests/MenuBarRevealTests.swift",
+      "bytes": 6962,
+      "sha256": "f3fcdee3660770a00aa4e1b404055efe306e7cbb85593db4c64aad6a20462613"
+    },
+    {
+      "path": "BarPilot/Tests/BarPilotCoreTests/MenuBarSessionTests.swift",
+      "bytes": 3791,
+      "sha256": "beb08f8d429af51c32eddbeeb98954263e099722b89e7d07d2b908f15f1df6c8"
+    },
+    {
+      "path": "BarPilot/Tests/BarPilotCoreTests/MoveJournalTests.swift",
+      "bytes": 2628,
+      "sha256": "329fc6fcd9d52ee6137dc304738843346b6a1abb0217885d27be05aba6c00c97"
+    },
+    {
+      "path": "BarPilot/Tests/BarPilotCoreTests/PaletteCommandTests.swift",
+      "bytes": 14144,
+      "sha256": "7e2fe8f61ad63579c22044d90b132939bce139d5d7413e49abec5b054ca32903"
+    },
+    {
+      "path": "BarPilot/Tests/BarPilotCoreTests/PreferredPositionsTests.swift",
+      "bytes": 16414,
+      "sha256": "de260cfbcd9efbd6a661fb64e89302a5c90fe957b05e2ff32bfda3eea1ca09d9"
+    },
+    {
+      "path": "BarPilot/Tests/BarPilotCoreTests/PresentationCommandTests.swift",
+      "bytes": 2816,
+      "sha256": "35d26a289ccf1f1200f252d0638ba29ed1dee4118c5de644d7af3396079e92f8"
+    },
+    {
+      "path": "BarPilot/Tests/BarPilotCoreTests/ProDomainTests.swift",
+      "bytes": 13097,
+      "sha256": "0f160a1d09c744cddf99f6602d146117123da5b40fbfab7e83c22ceb60b5800b"
+    },
+    {
+      "path": "BarPilot/Tests/BarPilotCoreTests/StatusControlTests.swift",
+      "bytes": 1367,
+      "sha256": "659f18a5c2198aa503c2fa9b56d6b1171c6b0b0b2f67c4e5df837811a1fe2739"
+    },
+    {
+      "path": "BarPilot/Tests/BarPilotSessionTests/MenuBarWakeRecoveryTests.swift",
+      "bytes": 12190,
+      "sha256": "5d37edeb1a7c3cdb3cbd8c184f9486dc7ad755b116f1351f8f58faf6f56b18db"
+    },
+    {
+      "path": "BarPilot/Tests/BarPilotSessionTests/SessionControllerTests.swift",
+      "bytes": 5027,
+      "sha256": "84f1ababa008c509eb41150eaa5b56c4acbdacb3799a169e6502ec81397bdfcd"
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "bytes": 1753,
+      "sha256": "1807d13bdd8c149eaa6dd4dbfe7916c7094f454da7da2f9a6f767bc4a30b8ce7"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 35149,
+      "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986"
+    },
+    {
+      "path": "README.md",
+      "bytes": 1764,
+      "sha256": "cc500ea3648943087002cec0f9742a37ea4bfa161b2cf87fb45d84a737506446"
+    },
+    {
+      "path": "SECURITY.md",
+      "bytes": 763,
+      "sha256": "001ff77a4ad5acb43802cfba1cb65612184660ba428ca11cd6c94a1abff338ce"
+    },
+    {
+      "path": "SIGNING.md",
+      "bytes": 493,
+      "sha256": "77af75df57b27b8f41c98ad3f4cc21e72e5d2064b60a31c3941770efd1eed8a5"
+    },
+    {
+      "path": "Shared/AppLocalizationKit/Package.swift",
+      "bytes": 457,
+      "sha256": "9588dd23cd86e80216b7b17a961aac141cd98392e4502d3fcb5cc1244b73edd5"
+    },
+    {
+      "path": "Shared/AppLocalizationKit/Sources/AppLocalizationKit/AppLocalizer.swift",
+      "bytes": 5248,
+      "sha256": "c7669743bab2757de9002058681c01fa1e4b1828810de92f4b2816df451166aa"
+    },
+    {
+      "path": "Shared/AppLocalizationKit/Tests/AppLocalizationKitTests/AppLocalizerTests.swift",
+      "bytes": 2347,
+      "sha256": "a17526e6daa5753bb50c7f8cf54fa797f3e3f09ede39bd2d715ac4eee1fa279a"
+    },
+    {
+      "path": "Shared/AppLocalizationKit/Tests/AppLocalizationKitTests/Fixtures/LocalizationFixture.bundle/Info.plist",
+      "bytes": 373,
+      "sha256": "6496a60b4b8ac8cf4f74a7645ac8fdfd662f7d6aeab08aebaf70793977aeca32"
+    },
+    {
+      "path": "Shared/AppLocalizationKit/Tests/AppLocalizationKitTests/Fixtures/LocalizationFixture.bundle/en.lproj/Localizable.strings",
+      "bytes": 67,
+      "sha256": "73223e8cc4d1464bddd2ab630b3ead85f94d791ab588424278b05eca95aaf09d"
+    },
+    {
+      "path": "Shared/AppLocalizationKit/Tests/AppLocalizationKitTests/Fixtures/LocalizationFixture.bundle/zh-Hans.lproj/Localizable.strings",
+      "bytes": 27,
+      "sha256": "b86d1275f4bffc38cea14a52477feb58a82c245eaabe9ccd222a4552582b64aa"
+    },
+    {
+      "path": "Shared/AppLocalizationKit/Tests/AppLocalizationKitTests/Fixtures/LocalizationFixture.bundle/zh-Hant.lproj/Localizable.strings",
+      "bytes": 27,
+      "sha256": "4a20b23d7d8b82de32523cf21dca75a07213f9c0caa68e11bfc43f64a90b537f"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES.md",
+      "bytes": 539,
+      "sha256": "82b69722ceb49dac5e876d1f873b972aa90716e1c58cd860c90a0d6b0a1481cf"
+    },
+    {
+      "path": "docs/localization.md",
+      "bytes": 3463,
+      "sha256": "e8f9223a5e6e48c343b0c99ff379e690aaacba46017549c645cf942160b5fe57"
+    },
+    {
+      "path": "scripts/localization/app-info.json",
+      "bytes": 4761,
+      "sha256": "7f7b5694343c6432ef0eeac8e14c565dbe1527adda778d9b535adac5d553e452"
+    },
+    {
+      "path": "scripts/localization/check-catalogs.py",
+      "bytes": 5033,
+      "sha256": "248f66da1ca4a24af60d48c3ddfb79f3a5bde8b084f2982a4a611344fb8bab43"
+    },
+    {
+      "path": "scripts/localization/collect-source-keys.py",
+      "bytes": 2859,
+      "sha256": "383d5775e8993bd7cc21ed6f6fadfb64a5912f71f9619d98532b44e8d16e4c7c"
+    },
+    {
+      "path": "scripts/localization/context-overrides.json",
+      "bytes": 47720,
+      "sha256": "0c962bee80c6bfaf5da3eee0619dd1d50ddc94d08afaa550643da39807e1728b"
+    },
+    {
+      "path": "scripts/localization/english-overrides.json",
+      "bytes": 16183,
+      "sha256": "2a4f1098d13d7fcac0d5bc2d5bfa11b4e4a17fea97148c58d66473295d020893"
+    },
+    {
+      "path": "scripts/localization/english-ui.json",
+      "bytes": 15299,
+      "sha256": "2516f079467e935c92605ebf58f13794cfc8071540ecbdd92382a159d8842d6d"
+    },
+    {
+      "path": "scripts/localization/generate-catalogs.py",
+      "bytes": 4818,
+      "sha256": "36b0841d3abb1924aec1748ee48acee1a19a6a1cbe4fcb07a3aff31c4b306b9c"
+    },
+    {
+      "path": "scripts/localization/localize-swift.swift",
+      "bytes": 10995,
+      "sha256": "9b739b127a589a0d49dc615df65c389f2d407984b665d8819226d757a3441e77"
+    },
+    {
+      "path": "scripts/localization/package-resources.py",
+      "bytes": 2796,
+      "sha256": "27d5989d88f9efc9bb7248e3d2f4da725bc7e52a5f06997d4d51a059f01c9945"
+    },
+    {
+      "path": "scripts/localization/simplify-catalog.swift",
+      "bytes": 1612,
+      "sha256": "a57c567ecc13f0226dff062eacec050db83c3a5a77817530acac83a6999897fe"
+    },
+    {
+      "path": "scripts/localization/translate-catalog.swift",
+      "bytes": 2273,
+      "sha256": "db37713fb62d3d4d9c4e9b739b5ca9b13b349d302f9f653eb73bb537590064d4"
+    }
+  ]
+}

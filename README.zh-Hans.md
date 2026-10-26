@@ -4,7 +4,7 @@
 
 ![BarPilot banner](assets/hero.svg)
 
-![preview](https://img.shields.io/badge/release-0.5.2--preview.1-50c8e8?style=flat-square) ![GPLv3](https://img.shields.io/badge/license-GPL--3.0-blue?style=flat-square)
+![preview](https://img.shields.io/badge/release-0.5.3--preview.1-50c8e8?style=flat-square) ![GPLv3](https://img.shields.io/badge/license-GPL--3.0-blue?style=flat-square)
 
 **让 Mac 菜单栏井然有序。** 个人 macOS 工具系列的独立 App。
 
@@ -16,7 +16,7 @@
 
 ## 安装预览版
 
-从 [Releases](https://github.com/yoko1234p/BarPilot/releases/tag/v0.5.2-preview.1) 下载 macOS ZIP，解压后将 `BarPilot.app` 移至“应用程序”。预览版使用临时签名，**未经 Apple 公证**。首次打开时在 Finder 右键选择“打开”；若系统阻止，请到“系统设置 → 隐私与安全性 → 仍要打开”核对。只授予所需权限，覆盖现用版本前先备份本地数据。
+从 [Releases](https://github.com/yoko1234p/BarPilot/releases/tag/v0.5.3-preview.1) 下载 macOS ZIP，解压后将 `BarPilot.app` 移至“应用程序”。预览版使用临时签名，**未经 Apple 公证**。首次打开时在 Finder 右键选择“打开”；若系统阻止，请到“系统设置 → 隐私与安全性 → 仍要打开”核对。只授予所需权限，覆盖现用版本前先备份本地数据。
 
 ## 从源代码构建
 

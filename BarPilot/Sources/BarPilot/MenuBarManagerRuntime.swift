@@ -23,11 +23,7 @@ import BarPilotNative
         }
     }
     var controlReachable: (() -> Bool)?
-    var menuBarCanBeVerified: () -> Bool = {
-        // A full-screen Space may hide or replace the hosted status-item scene.
-        // Its temporary absence must not release and reapply the hiding assertion.
-        NSMenu.menuBarVisible() && !NSApp.currentSystemPresentationOptions.contains(.fullScreen)
-    }
+    var menuBarCanBeVerified: () -> Bool = { !MenuBarFullscreenPresentation.isActive() }
     var capabilityError: () -> String? = { BPAssessmentAssertion.capabilityError() }
     var systemItems: () -> [NSNumber]? = { MenuBarSystemItems.all }
     var runningBundles: () -> Set<String> = {
@@ -35,6 +31,7 @@ import BarPilotNative
     }
     var activationTimeout: Duration = .seconds(5)
     var controlCheckDelays: [Duration] = [.milliseconds(350), .milliseconds(650), .seconds(1)]
+    var fullscreenRecheckDelay: Duration = .seconds(2)
     var recoveryDelays: [Duration] = [
         .milliseconds(500), .seconds(1), .seconds(2), .seconds(5), .seconds(15), .seconds(30),
     ]

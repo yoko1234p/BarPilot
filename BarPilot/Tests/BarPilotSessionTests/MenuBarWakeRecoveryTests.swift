@@ -40,6 +40,7 @@ import XCTest
             runtime.runningBundles = { ["test.hidden", "test.private"] }
             runtime.activationTimeout = .milliseconds(40)
             runtime.controlCheckDelays = [.milliseconds(5), .milliseconds(5), .milliseconds(5)]
+            runtime.fullscreenRecheckDelay = .milliseconds(5)
             runtime.recoveryDelays = [.milliseconds(10)]
             runtime.assessment.activate = { [weak self] _, _, callback in
                 guard let self else { return }
@@ -259,6 +260,55 @@ import XCTest
         try await waitUntil { fixture.activations > activations }
         fixture.reachable = true
         try await waitUntil { !fixture.manager.isRecoveringSession }
+    }
+
+    func testFullscreenInventoryChangesDoNotReapplyNativeHiding() async throws {
+        let fixture = Fixture()
+        try await fixture.start()
+        defer { fixture.manager.disable() }
+        let activations = fixture.activations
+        let invalidations = fixture.invalidations
+        fixture.menuBarAvailable = false
+        var changed = fixture.settings
+        changed.assign(.init(id: "hidden", visibility: .visible))
+        fixture.manager.updateNativeContext(items: fixture.items, settings: changed)
+        try await Task.sleep(for: .milliseconds(70))
+        XCTAssertEqual(fixture.activations, activations)
+        XCTAssertEqual(fixture.invalidations, invalidations)
+        XCTAssertEqual(fixture.manager.concealedBundles, ["test.hidden", "test.private"])
+        fixture.menuBarAvailable = true
+        fixture.manager.updateNativeContext(items: fixture.items, settings: changed)
+        try await waitUntil { fixture.activations > activations }
+        XCTAssertEqual(fixture.manager.concealedBundles, ["test.private"])
+    }
+
+    func testFullscreenExitRequestsOneFreshInventoryScan() async throws {
+        let fixture = Fixture()
+        try await fixture.start()
+        defer { fixture.manager.disable() }
+        var refreshes = 0
+        fixture.manager.refreshAfterFullscreen = { refreshes += 1 }
+        fixture.menuBarAvailable = false
+        fixture.manager.verifyControlSoon()
+        try await Task.sleep(for: .milliseconds(30))
+        XCTAssertEqual(refreshes, 0)
+        fixture.menuBarAvailable = true
+        try await waitUntil { refreshes == 1 }
+        try await Task.sleep(for: .milliseconds(30))
+        XCTAssertEqual(refreshes, 1)
+    }
+
+    func testFullscreenGeometryChecksEachDisplayInGlobalCoordinates() {
+        let primary = CGRect(x: 0, y: 0, width: 2560, height: 1440)
+        let left = CGRect(x: -1920, y: 220, width: 1920, height: 1080)
+        let right = CGRect(x: 2560, y: 0, width: 1920, height: 1080)
+        XCTAssertTrue(MenuBarFullscreenPresentation.coversDisplay(left, display: left))
+        XCTAssertTrue(MenuBarFullscreenPresentation.coversDisplay(right, display: right))
+        XCTAssertFalse(MenuBarFullscreenPresentation.coversDisplay(left, display: primary))
+        XCTAssertFalse(MenuBarFullscreenPresentation.coversDisplay(left.insetBy(dx: 20, dy: 20), display: left))
+        let notchSafeArea = CGRect(x: left.minX, y: left.minY + 34, width: left.width, height: left.height - 34)
+        XCTAssertTrue(MenuBarFullscreenPresentation.nearlyCoversDisplay(notchSafeArea, display: left))
+        XCTAssertFalse(MenuBarFullscreenPresentation.nearlyCoversDisplay(left.insetBy(dx: 100, dy: 100), display: left))
     }
 
     func testWakeIntoFullscreenKeepsRecoveredPolicyWithoutRepeatedReapplication() async throws {

@@ -37,6 +37,8 @@ import Combine
     weak var controlItem: NSStatusItem?
     var restoreControl: (() -> Void)?
     private var controlCheckTask: Task<Void, Never>?
+    private var fullscreenRecheckTask: Task<Void, Never>?
+    var refreshAfterFullscreen: (() -> Void)?
     private var hiddenDivider: NSStatusItem?
     private var alwaysDivider: NSStatusItem?
     private var moving = false
@@ -75,6 +77,8 @@ import Combine
     }
     func disable() {
         cancelSessionRecovery()
+        fullscreenRecheckTask?.cancel()
+        fullscreenRecheckTask = nil
         suspendedVisibility = nil
         unrestrictedActivation = false
         temporaryBundles = []
@@ -90,6 +94,8 @@ import Combine
     }
     func suspendForSession() {
         guard !sessionSuspended else { return }
+        fullscreenRecheckTask?.cancel()
+        fullscreenRecheckTask = nil
         let expanded = hasTemporaryReveal ? returnExpanded : hiddenExpanded
         suspendedVisibility = (isSetupMode, expanded)
         let rememberedOwners = concealedBundles.union(nativePolicy(expanded: expanded).concealedBundles)
@@ -205,14 +211,20 @@ import Combine
         return true
     }
     func updateNativeContext(items: [MenuBarItem], settings: BarPilotSettings) {
-        nativeItems = items
-        nativeSettings = settings
         guard canOperate else { return }
         if usesAssessment, isEnabled, !runtime.accessibilityTrusted() || !competingManagers.isEmpty {
             disable()
             issue = L10n.text("權限已撤回或另一個管理器已開啟，已解除隱藏並停用管理。")
             return
         }
+        // AX inventory and running-app lists fluctuate while another app owns a
+        // full-screen display. Preserve the last working assertion until it exits.
+        guard !usesAssessment || !isEnabled || isSetupMode || canVerifyControl else {
+            scheduleFullscreenRecheck()
+            return
+        }
+        nativeItems = items
+        nativeSettings = settings
         guard usesAssessment, isEnabled, !isSetupMode, !isApplying, !isRecoveringSession, !unrestrictedActivation else {
             return
         }
@@ -471,16 +483,22 @@ import Combine
     }
     var controlFrame: CGRect? { quartzFrame(controlItem) }
     func verifyControlSoon() {
-        guard canOperate, usesAssessment, isEnabled, !isRecoveringSession, !concealedBundles.isEmpty,
-            canVerifyControl else { return }
+        guard canOperate, usesAssessment, isEnabled, !isRecoveringSession, !concealedBundles.isEmpty else { return }
+        guard canVerifyControl else {
+            scheduleFullscreenRecheck()
+            return
+        }
         controlCheckTask?.cancel()
         let request = generation.value
         let delays = runtime.controlCheckDelays
         controlCheckTask = Task { @MainActor [weak self] in
             for (index, delay) in delays.enumerated() {
                 do { try await Task.sleep(for: delay) } catch { return }
-                guard let self, canOperate, generation.accepts(request), isEnabled, !isSetupMode,
-                    canVerifyControl else { return }
+                guard let self, canOperate, generation.accepts(request), isEnabled, !isSetupMode else { return }
+                guard canVerifyControl else {
+                    scheduleFullscreenRecheck()
+                    return
+                }
                 guard controlIsReachable() else {
                     guard canOperate else { return }
                     // MenuBarAgent animates and replaces the hosted status-item scene during reflow.
@@ -489,6 +507,22 @@ import Combine
                     // A hosted control can disappear briefly after a late MenuBarAgent rebuild.
                     // Release the assertion for reachability, but retain the user's expansion state.
                     recoverSessionVisibility(expanded: hiddenExpanded)
+                    return
+                }
+            }
+        }
+    }
+    private func scheduleFullscreenRecheck() {
+        guard fullscreenRecheckTask == nil else { return }
+        fullscreenRecheckTask = Task { @MainActor [weak self] in
+            while !Task.isCancelled {
+                guard let self, isEnabled, !sessionSuspended else { return }
+                do { try await Task.sleep(for: runtime.fullscreenRecheckDelay) } catch { return }
+                guard !Task.isCancelled else { return }
+                if canVerifyControl {
+                    fullscreenRecheckTask = nil
+                    refreshAfterFullscreen?()
+                    verifyControlSoon()
                     return
                 }
             }

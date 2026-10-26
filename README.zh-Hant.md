@@ -4,7 +4,7 @@
 
 ![BarPilot banner](assets/hero.svg)
 
-![preview](https://img.shields.io/badge/release-0.5.2--preview.1-50c8e8?style=flat-square) ![GPLv3](https://img.shields.io/badge/license-GPL--3.0-blue?style=flat-square)
+![preview](https://img.shields.io/badge/release-0.5.3--preview.1-50c8e8?style=flat-square) ![GPLv3](https://img.shields.io/badge/license-GPL--3.0-blue?style=flat-square)
 
 **讓 Mac 選單列有條理。** 個人 macOS 工具系列的獨立 App。
 
@@ -16,7 +16,7 @@
 
 ## 安裝預覽版
 
-從 [Releases](https://github.com/yoko1234p/BarPilot/releases/tag/v0.5.2-preview.1) 下載 macOS ZIP，解壓後將 `BarPilot.app` 移至「應用程式」。預覽版使用臨時簽署，**未經 Apple 公證**。首次開啟時在 Finder 按右鍵選「開啟」；若系統阻擋，請到「系統設定 → 私隱與保安 → 仍要開啟」核對。只授予所需權限，覆蓋現用版本前先備份本機資料。
+從 [Releases](https://github.com/yoko1234p/BarPilot/releases/tag/v0.5.3-preview.1) 下載 macOS ZIP，解壓後將 `BarPilot.app` 移至「應用程式」。預覽版使用臨時簽署，**未經 Apple 公證**。首次開啟時在 Finder 按右鍵選「開啟」；若系統阻擋，請到「系統設定 → 私隱與保安 → 仍要開啟」核對。只授予所需權限，覆蓋現用版本前先備份本機資料。
 
 ## 從原始碼建置
 

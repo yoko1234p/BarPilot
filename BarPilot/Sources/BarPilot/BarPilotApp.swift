@@ -72,6 +72,7 @@ import SwiftUI
         status.behavior = []
         status.isVisible = true
         model.manager.controlItem = status
+        model.manager.refreshAfterFullscreen = { [weak self] in self?.model.refresh() }
         status.button?.image = NSImage(
             systemSymbolName: "ellipsis", accessibilityDescription: L10n.text("BarPilot 控制"))?
             .withSymbolConfiguration(.init(pointSize: 16, weight: .semibold))

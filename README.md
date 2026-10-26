@@ -4,7 +4,7 @@
 
 ![BarPilot banner](assets/hero.svg)
 
-![preview](https://img.shields.io/badge/release-0.5.2--preview.1-50c8e8?style=flat-square) ![GPLv3](https://img.shields.io/badge/license-GPL--3.0-blue?style=flat-square)
+![preview](https://img.shields.io/badge/release-0.5.3--preview.1-50c8e8?style=flat-square) ![GPLv3](https://img.shields.io/badge/license-GPL--3.0-blue?style=flat-square)
 
 **Make room in your Mac menu bar.** A standalone project in the personal macOS tools collection.
 
@@ -16,7 +16,7 @@
 
 ## Install a preview
 
-Download the macOS ZIP from [Releases](https://github.com/yoko1234p/BarPilot/releases/tag/v0.5.2-preview.1), unzip, and move `BarPilot.app` to Applications. This preview uses ad-hoc signing and is **not notarized**. On first launch, use Finder’s **Open** context menu; if macOS blocks it, review **System Settings → Privacy & Security → Open Anyway**. Grant only the permissions you need. Do not install over a working copy without backing up local data.
+Download the macOS ZIP from [Releases](https://github.com/yoko1234p/BarPilot/releases/tag/v0.5.3-preview.1), unzip, and move `BarPilot.app` to Applications. This preview uses ad-hoc signing and is **not notarized**. On first launch, use Finder’s **Open** context menu; if macOS blocks it, review **System Settings → Privacy & Security → Open Anyway**. Grant only the permissions you need. Do not install over a working copy without backing up local data.
 
 ## Build from source
 

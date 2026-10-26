@@ -1,4 +1,38 @@
+# BarPilot v0.5.3-preview.1
+
+## English — Full-screen media on multiple displays
+
+- Detect Chrome and QuickTime full-screen video, including playback on a secondary display while another app is active on the main display.
+- Preserve the current native icon-hiding assertion during playback, then refresh the inventory after leaving full screen.
+- Add regression coverage for playback transitions and secondary-display coordinates.
+
+This macOS preview is ad-hoc signed and not notarized. Verify the ZIP against `SHA256SUMS` and see the [installation instructions](README.md#install-a-preview).
+
+## 繁體中文 — 多螢幕影片全螢幕修正
+
+- 辨識 Chrome 及 QuickTime 全螢幕，包括副螢幕播放、主螢幕使用其他 App 的情況。
+- 播放期間保留現有原生圖示收納設定，離開全螢幕後再刷新圖示清單。
+- 加入全螢幕切換及副螢幕座標的回歸測試。
+
+此 macOS 預覽版使用臨時簽署，未經 Apple 公證。下載後請對照 `SHA256SUMS` 驗證，並參閱[安裝說明](README.zh-Hant.md#安裝預覽版)。
+
+## 简体中文 — 多显示器视频全屏修复
+
+- 识别 Chrome 和 QuickTime 全屏，包括副显示器播放、主显示器使用另一个 App 的情况。
+- 播放期间保留当前原生图标隐藏设置，退出全屏后再刷新图标列表。
+- 添加全屏切换和副显示器坐标的回归测试。
+
+此 macOS 预览版使用临时签名，未经 Apple 公证。下载后请对照 `SHA256SUMS` 验证，并参阅[安装说明](README.zh-Hans.md#安装预览版)。
+
+---
+
 # BarPilot v0.5.2-preview.1
+
+This earlier preview checked BarPilot's own menu-bar visibility; it did not reliably detect full-screen video in another app. Use v0.5.3-preview.1 for that case.
+
+此舊版只檢查 BarPilot 自身的選單列狀態，未能可靠辨識其他 App 的影片全螢幕；請改用 v0.5.3-preview.1。
+
+此旧版只检查 BarPilot 自身的菜单栏状态，未能可靠识别其他 App 的视频全屏；请改用 v0.5.3-preview.1。
 
 ## English — Full-screen playback fix
 

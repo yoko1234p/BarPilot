@@ -129,15 +129,16 @@ import SwiftUI
         }
         model.refresh()
         model.restoreManagementAtLaunch()
-        observers.append(
-            NSWorkspace.shared.notificationCenter.addObserver(
-                forName: NSWorkspace.didActivateApplicationNotification, object: nil, queue: .main
-            ) { [weak self] _ in
-                Task { @MainActor in
-                    self?.model.manager.verifyControlSoon()
-                    self?.model.scheduleControlPin()
-                }
-            })
+        for name in [NSWorkspace.didActivateApplicationNotification, NSWorkspace.activeSpaceDidChangeNotification] {
+            observers.append(
+                NSWorkspace.shared.notificationCenter.addObserver(forName: name, object: nil, queue: .main) {
+                    [weak self] _ in
+                    Task { @MainActor in
+                        self?.model.manager.verifyControlSoon()
+                        self?.model.scheduleControlPin()
+                    }
+                })
+        }
         observers.append(
             NotificationCenter.default.addObserver(forName: NSWindow.didMoveNotification, object: nil, queue: .main) {
                 [weak self] notification in

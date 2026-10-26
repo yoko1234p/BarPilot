@@ -23,6 +23,11 @@ import BarPilotNative
         }
     }
     var controlReachable: (() -> Bool)?
+    var menuBarCanBeVerified: () -> Bool = {
+        // A full-screen Space may hide or replace the hosted status-item scene.
+        // Its temporary absence must not release and reapply the hiding assertion.
+        NSMenu.menuBarVisible() && !NSApp.currentSystemPresentationOptions.contains(.fullScreen)
+    }
     var capabilityError: () -> String? = { BPAssessmentAssertion.capabilityError() }
     var systemItems: () -> [NSNumber]? = { MenuBarSystemItems.all }
     var runningBundles: () -> Set<String> = {

@@ -159,7 +159,8 @@ import Combine
         source.id == controlID ? inventory.items + [source] : inventory.items
     }
     private func pinControlIfNeeded() async {
-        guard sessionIsActive, manager.usesAssessment, manager.isEnabled, positions.isAuthorized, !isWorking,
+        guard sessionIsActive, manager.usesAssessment, manager.isEnabled, manager.canVerifyControl,
+            positions.isAuthorized, !isWorking,
             !manager.isApplying, !manager.isRecoveringSession, pendingMove == nil, positions.pending == nil,
             !positions.recoveryBlocked,
             !readOnlySettings, !CGEventSource.buttonState(.combinedSessionState, button: .left),

@@ -9,6 +9,7 @@ import XCTest
         enum Reply { case success, error, pending }
         var interactive = true
         var reachable = true
+        var menuBarAvailable = true
         var trusted = true
         var reply = Reply.success
         var activations = 0
@@ -30,6 +31,7 @@ import XCTest
             runtime.usesAssessment = true
             runtime.desktopInteractive = { [weak self] in self?.interactive == true }
             runtime.controlReachable = { [weak self] in self?.reachable == true }
+            runtime.menuBarCanBeVerified = { [weak self] in self?.menuBarAvailable == true }
             runtime.accessibilityTrusted = { [weak self] in self?.trusted == true }
             runtime.verifiedLaunchLocation = { true }
             runtime.competingManagers = { [] }
@@ -235,6 +237,45 @@ import XCTest
         XCTAssertFalse(fixture.manager.isSetupMode)
         fixture.reachable = true
         try await waitUntil { !fixture.manager.isRecoveringSession }
+        XCTAssertEqual(fixture.manager.concealedBundles, ["test.hidden", "test.private"])
+    }
+
+    func testHiddenFullscreenMenuBarDoesNotTriggerControlRecovery() async throws {
+        let fixture = Fixture()
+        try await fixture.start()
+        defer { fixture.manager.disable() }
+        fixture.reachable = false
+        fixture.menuBarAvailable = false
+        let activations = fixture.activations
+        let invalidations = fixture.invalidations
+        fixture.manager.verifyControlSoon()
+        try await Task.sleep(for: .milliseconds(70))
+        XCTAssertEqual(fixture.activations, activations)
+        XCTAssertEqual(fixture.invalidations, invalidations)
+        XCTAssertFalse(fixture.manager.hiddenExpanded)
+        XCTAssertEqual(fixture.manager.concealedBundles, ["test.hidden", "test.private"])
+        fixture.menuBarAvailable = true
+        fixture.manager.verifyControlSoon()
+        try await waitUntil { fixture.activations > activations }
+        fixture.reachable = true
+        try await waitUntil { !fixture.manager.isRecoveringSession }
+    }
+
+    func testWakeIntoFullscreenKeepsRecoveredPolicyWithoutRepeatedReapplication() async throws {
+        let fixture = Fixture()
+        try await fixture.start()
+        defer { fixture.manager.disable() }
+        fixture.sleep()
+        fixture.reachable = false
+        fixture.menuBarAvailable = false
+        fixture.wake()
+        try await waitUntil { !fixture.manager.isRecoveringSession && fixture.activations >= 2 }
+        let activations = fixture.activations
+        let invalidations = fixture.invalidations
+        try await Task.sleep(for: .milliseconds(70))
+        XCTAssertEqual(fixture.activations, activations)
+        XCTAssertEqual(fixture.invalidations, invalidations)
+        XCTAssertFalse(fixture.manager.hiddenExpanded)
         XCTAssertEqual(fixture.manager.concealedBundles, ["test.hidden", "test.private"])
     }
 

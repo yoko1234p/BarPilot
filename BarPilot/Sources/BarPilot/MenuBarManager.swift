@@ -23,6 +23,7 @@ import Combine
     private var returnExpanded = false
     private var unrestrictedActivation = false
     var usesAssessment: Bool { runtime.usesAssessment }
+    var canVerifyControl: Bool { runtime.menuBarCanBeVerified() }
     var backendDescription: String {
         usesAssessment ? L10n.text("macOS 27 · 原生隱藏／偏好排序") : L10n.text("macOS 26 · 分隔線管理")
     }
@@ -318,7 +319,9 @@ import Combine
                     for delay in runtime.controlCheckDelays {
                         try await Task.sleep(for: delay)
                         guard !Task.isCancelled, canOperate, recoveryGeneration == request else { return }
-                        if concealedBundles.isEmpty || controlIsReachable() {
+                        // A hidden full-screen menu bar is not a missing control. Keep the
+                        // successful policy and check again after the Space changes.
+                        if concealedBundles.isEmpty || !canVerifyControl || controlIsReachable() {
                             issue = nil
                             // Reconcile any inventory changes that arrived during activation.
                             isRecoveringSession = false
@@ -468,14 +471,16 @@ import Combine
     }
     var controlFrame: CGRect? { quartzFrame(controlItem) }
     func verifyControlSoon() {
-        guard canOperate, usesAssessment, isEnabled, !isRecoveringSession, !concealedBundles.isEmpty else { return }
+        guard canOperate, usesAssessment, isEnabled, !isRecoveringSession, !concealedBundles.isEmpty,
+            canVerifyControl else { return }
         controlCheckTask?.cancel()
         let request = generation.value
         let delays = runtime.controlCheckDelays
         controlCheckTask = Task { @MainActor [weak self] in
             for (index, delay) in delays.enumerated() {
                 do { try await Task.sleep(for: delay) } catch { return }
-                guard let self, canOperate, generation.accepts(request), isEnabled, !isSetupMode else { return }
+                guard let self, canOperate, generation.accepts(request), isEnabled, !isSetupMode,
+                    canVerifyControl else { return }
                 guard controlIsReachable() else {
                     guard canOperate else { return }
                     // MenuBarAgent animates and replaces the hosted status-item scene during reflow.

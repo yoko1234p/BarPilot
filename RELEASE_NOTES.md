@@ -1,3 +1,28 @@
+# BarPilot v0.5.2-preview.1
+
+## English — Full-screen playback fix
+
+- Keep the current icon visibility while a full-screen Space temporarily hides the menu bar. BarPilot no longer treats that transition as a missing control and repeatedly reapplies its hiding policy.
+- Check control reachability and saved ordering again when the active Space changes.
+
+This macOS preview is ad-hoc signed and not notarized. Download the ZIP below, verify its SHA-256 against `SHA256SUMS`, then follow the [installation instructions](README.md#install-a-preview). The previous preview remains available for rollback.
+
+## 繁體中文 — 全螢幕播放修正
+
+- 全螢幕 Space 暫時收起選單列時，保留現有圖示開收狀態，避免誤判控制圖示消失而反覆套用隱藏設定。
+- 切換 Space 後重新核對控制圖示及儲存的排序。
+
+此 macOS 預覽版使用臨時簽署，未經 Apple 公證。下載 ZIP 後請對照 `SHA256SUMS` 驗證 SHA-256，並參閱[安裝說明](README.zh-Hant.md#安裝預覽版)。舊版仍可下載以便回退。
+
+## 简体中文 — 全屏播放修复
+
+- 全屏 Space 暂时隐藏菜单栏时，保留当前图标展开状态，避免误判控制图标消失并反复应用隐藏设置。
+- 切换 Space 后重新核对控制图标和已保存的排序。
+
+此 macOS 预览版使用临时签名，未经 Apple 公证。下载 ZIP 后请对照 `SHA256SUMS` 验证 SHA-256，并参阅[安装说明](README.zh-Hans.md#安装预览版)。旧版仍可下载以便回退。
+
+---
+
 # BarPilot v0.5.1-preview.1
 
 ## English — First public preview

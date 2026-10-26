@@ -1,4 +1,4 @@
-# BarPilot v0.5.3-preview.1
+# BarPilot v0.5.3-preview.1 (draft)
 
 ## English — Full-screen media on multiple displays
 
@@ -6,7 +6,7 @@
 - Preserve the current native icon-hiding assertion during playback, then refresh the inventory after leaving full screen.
 - Add regression coverage for playback transitions and secondary-display coordinates.
 
-This macOS preview is ad-hoc signed and not notarized. Verify the ZIP against `SHA256SUMS` and see the [installation instructions](README.md#install-a-preview).
+The package is prepared but not yet published. It is ad-hoc signed and not notarized; when published, verify the ZIP against `SHA256SUMS` and see the [installation instructions](README.md#install-a-preview).
 
 ## 繁體中文 — 多螢幕影片全螢幕修正
 
@@ -14,7 +14,7 @@ This macOS preview is ad-hoc signed and not notarized. Verify the ZIP against `S
 - 播放期間保留現有原生圖示收納設定，離開全螢幕後再刷新圖示清單。
 - 加入全螢幕切換及副螢幕座標的回歸測試。
 
-此 macOS 預覽版使用臨時簽署，未經 Apple 公證。下載後請對照 `SHA256SUMS` 驗證，並參閱[安裝說明](README.zh-Hant.md#安裝預覽版)。
+安裝包已準備好，但尚未公開發佈。此版本使用臨時簽署，未經 Apple 公證；發佈後請對照 `SHA256SUMS` 驗證，並參閱[安裝說明](README.zh-Hant.md#安裝預覽版)。
 
 ## 简体中文 — 多显示器视频全屏修复
 
@@ -22,17 +22,17 @@ This macOS preview is ad-hoc signed and not notarized. Verify the ZIP against `S
 - 播放期间保留当前原生图标隐藏设置，退出全屏后再刷新图标列表。
 - 添加全屏切换和副显示器坐标的回归测试。
 
-此 macOS 预览版使用临时签名，未经 Apple 公证。下载后请对照 `SHA256SUMS` 验证，并参阅[安装说明](README.zh-Hans.md#安装预览版)。
+安装包已准备好，但尚未公开发布。此版本使用临时签名，未经 Apple 公证；发布后请对照 `SHA256SUMS` 验证，并参阅[安装说明](README.zh-Hans.md#安装预览版)。
 
 ---
 
 # BarPilot v0.5.2-preview.1
 
-This earlier preview checked BarPilot's own menu-bar visibility; it did not reliably detect full-screen video in another app. Use v0.5.3-preview.1 for that case.
+This earlier preview checked BarPilot's own menu-bar visibility; it did not reliably detect full-screen video in another app. The main branch contains a candidate correction for that case.
 
-此舊版只檢查 BarPilot 自身的選單列狀態，未能可靠辨識其他 App 的影片全螢幕；請改用 v0.5.3-preview.1。
+此舊版只檢查 BarPilot 自身的選單列狀態，未能可靠辨識其他 App 的影片全螢幕；主分支已有候選修正。
 
-此旧版只检查 BarPilot 自身的菜单栏状态，未能可靠识别其他 App 的视频全屏；请改用 v0.5.3-preview.1。
+此旧版只检查 BarPilot 自身的菜单栏状态，未能可靠识别其他 App 的视频全屏；主分支已有候选修复。
 
 ## English — Full-screen playback fix
 
